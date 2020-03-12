@@ -52,8 +52,26 @@ Research:
   data base,thus making work much simpler.Also the presence of wide range of functions help 
   us to enable dynamic web pages.
 
-
-
+3.This code Models for Body and their children (BodyChildRelation).
+  Body-An organization or club which may conduct events.
+  The body contains some basic data members like:
+    *id
+    *time_of_creation
+    *name 
+    *description
+    *website_url 
+    *image_url
+    *time_of_modification
+  It also has some member functions to return some corresponding information. 
+  It also has meta class
+  Meta Class:
+    A metaclass in Python is a class of a class that defines how a class behaves.
+  Then 1 more class exist which relates parent to child .
+  It has parent and child member which stores id of parent and children.
+  This is how we can make a tree structure.
+  So it gives rise to node and rootes.So parent is a node and child is a root which 
+   again can be a parent.There exists one more root node which only has children and no parent.
+  This also has a meta class which kind of describes the outer class itself.
 
 Think:
 
