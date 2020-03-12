@@ -1,0 +1,18 @@
+class mapofauthorbook:
+    
+    def _init_(self):
+        self.value=""
+    def addbook(self,val):
+        if(self.value==""):
+            self.value=val
+        else:
+            self.value=self.value+","+val
+    def retbooks(self):
+        if(self.value==""):
+            return "no book"
+        else:
+            c=[]
+            for a in self.value.split(','): % assuming books dont have commas in name
+                c.append(a)
+            return c;
+        

@@ -1,0 +1,148 @@
+Backend Assignment:
+
+Research:
+
+1a. 1.Finds the ip address for corresponding url.
+    2.The request passed and connection between webpage host and client with series
+     od intermediate computers by the protocol used in url.
+    3. The server then based on client's call extracts html file using the contents
+       of the host.
+    4.The html file is sent back via a series o computer connections not necessarily 
+       the same path.
+    5.The .html is then executed again waiting for the next users response.
+
+1b. 1.First the web browser checks whether the translation of domain name to ip address
+    has already been done from the cache.
+    2.If no then it asks the os whether host files have done before.
+    3.If no then it checks the isp history for previous translation.
+    4.Even if not isp then it asks the global authority of corresponding translation.
+    5.Once the ip address is found,then the request is sent using protocols and 
+      connection is made.
+1c.Tcp-Transfer Control protocol involves a well made connection between the client and server before 
+   data packet is sent.In tcp after the data is sent a confirmation is sent from 
+   the receiver end that the exact data is received.This is helpful during network congestion,
+   unpredictable network.
+   Udp-User datagram protocol is an alternative to tcp where sender keeps sending data packets
+   and receiver keeps getting the packets.Here no well established connection made,therefore
+   loss of packets is possible.Also confrimation messages arent generally sent.
+
+1d.A server is a program or a device which provides multiple functionalities to the clients.It responds 
+   based on request send by the client.Basic Server setup involves a one or more computer with operating
+   systems and set of enabled protocols  that do the purpose of serving the client.   
+
+1e.Server evaluates the request which was given by client.Web server receives the http request.The web
+   server extracts the corresponding html file, can also construct the file based on previous history,
+   evaluations and sent back.
+   Apache-A virtual machine instance on Google Compute Engine can be controlled like any standard Linux server.
+   The Apache web server has modules which add more functions to its software.  
+
+1f.Make your system as a server.Now both system should be connected to a common router.
+   Find your system ip address.Then "ipaddress"/"name of file".
+   eg:192.168.0.102/example.html.
+   A router is a networking device that forwards data packets between computer networks. 
+
+2.Django is a opensource language made out of python used for web developement.It works 
+  for the backend and used for dynamic web pages.Django can reduce the work of usage 
+  a database languages like sql since it has features that does all the work of putting
+  and processing and taking out of data in a database.Django is just kind of a library 
+  in python where all the functionalities are similar to python classes,functions.
+  So we create classes which contains various data members and member functions.Each data
+  member represents a field in the database and each object is a row.So creation of class
+  objects and its members and storing via class objects makes the corresponding data in the
+  data base,thus making work much simpler.Also the presence of wide range of functions help 
+  us to enable dynamic web pages.
+
+
+
+
+Think:
+
+1.Class Book:
+   Data members:
+   1.bookname
+   2.author
+   3.isbn no
+   4.userid val default=NULL;  %if one user selected book the val is made 0.
+   5.descp %short description.
+   6.ownerid val
+                                                             
+   Functions:
+   Functions to return each of the data member .
+   Function to modify descp
+   Function to allocate the book user.
+   Constructors can be used to set default value or initial values during upload.
+   
+   Class user:
+   Data member:
+   1.user id
+   2.isbn set % a value which stores all books obtained by user 
+    in form of 1 string  "isbn1","isbn2","isbn3"... where every id can be retrieved.
+    
+   Functions:
+   Functions to:
+       return every book id.
+       borrow book.
+   Function to return the user info.
+   Constructors can be used to set default value or initial values during registration as user.
+   Delete every thing if user quits.
+  
+  Class Donor:
+  Data member:
+  1.Donor id
+  2.isbn set % similarly stored as that of user
+  
+  Functions :
+    Functions to: 
+      donate a book.(update after user obtains)
+      upload an book for upload
+      return every book isbn no,book id.
+    Constructors can be also used to set default values or initial values during registration. 
+    Delete if donor wishes to quit.
+
+2a.*Create a class mapofauthorbook
+   *This class contains a data member which stores names of all books corresponding to author.
+   *Default value=""
+   *Values can be stored as "book1,book2,book3,book4"...
+   *This class contains function to:
+      *Return all books 
+      *Add a book found to be of a particular author
+   """ So logic is if the author is new a new object is created with name as author id.
+       If already author exists,we add the book to the existing author."""
+2b. 
+       
+3a.Here each event is assigned a number called weight.
+   * First checked if an event is expired and its three days done after expiry.
+     All such events are removed.
+   * Event prioritizer sets weight for each event.First when an event is entered
+     by user,it is checked whether it is an permissable event.
+   *Also  bonus weight if user is following a body conducting the event.
+   *Default weight exists.Bonuses are added and penalities are deducted.
+   *Bonuses are given to:
+      *Events yet to end.
+      *if user is following a body conducting the event.
+      *For promoted events.
+      *
+    *Penalities are given to:
+      *Long running events.
+      *Events that have a long time to start linearly.
+      *Fininshed Events.
+      *Events for not being tagged in restricted audience
+
+3b. Similar to 3a,we can do similar one for this.We can convert this as an classification 
+    problem but for simplicity  we are doing that.(Similar to youtube pops out the list of videos)
+    So in default case if the books have rating,the default weight is assigned based on the rating.
+    Once the user begins taking the books the weight keeps changing.
+    *Whenever the user takes a particular book the weight keeps increasing.
+    *Weight increase is also based on how recent the pick of book is.
+    *Also flag option is given to user.Flag adds heavy amount of weight.
+    *Unflagging reduces the heavy weight.
+    *Also longer flagged books have better preference.
+    *User can opt to push the book down of his choice of magnitude.
+     Corrseponding weight is deducted.
+    *Default Higher weights for study books,Lower weight for entertainment books.
+     The classification can be either by the admin or it can be also an simple classification 
+     problem but efficiency can be low.
+
+    So if the book is removed for some cases the weight is made negative.
+    The list is filtered removing the negative weight books and placing the most weighted books
+    on top.
